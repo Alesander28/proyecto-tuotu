@@ -1,0 +1,10 @@
+/* Estilos del módulo de inventario (Sprint 3) */
+.buscador { width: 100%; max-width: 340px; margin: 6px 0 4px; }
+.solo-lectores { position: absolute; left: -9999px; }
+.historial { margin-top: 16px; }
+.historial ul { padding-left: 18px; line-height: 1.7; }
+.fila-formulario { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
+.subtitulo { margin-top: 10px; color: #555; font-size: 0.9rem; }
+.precio-fila { display: flex; align-items: center; gap: 8px; }
+.precio-fila input { width: 90px; padding: 4px 6px; }
+.precio-fila span { min-width: 80px; }

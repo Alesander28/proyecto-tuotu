@@ -1,0 +1,10 @@
+/* Estilos del módulo de reportes (Sprint 4) */
+.resumen-cifras { display: flex; gap: 14px; margin: 14px 0; flex-wrap: wrap; }
+.resumen-cifras .tarjeta { display: flex; flex-direction: column; min-width: 180px; }
+.resumen-cifras strong { font-size: 1.6rem; color: var(--azul); }
+.reportes-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.barra-fila { display: grid; grid-template-columns: 130px 1fr 90px; gap: 8px; align-items: center; margin: 8px 0; font-size: 0.9rem; }
+.barra { background: #e3e6eb; border-radius: 4px; height: 14px; }
+.barra div { background: var(--azul-medio); height: 100%; border-radius: 4px; }
+@media (max-width: 900px) { .reportes-columnas { grid-template-columns: 1fr; } }
+@media print { .menu, .barra-superior, .barra, .no-imprimir { display: none !important; } .panel { display: block; } }

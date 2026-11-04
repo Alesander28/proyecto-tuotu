@@ -1,0 +1,6 @@
+/* Estilos del módulo de ventas (Sprint 4) */
+.caja-pantalla { display: grid; grid-template-columns: 1fr 400px; gap: 20px; align-items: start; margin-bottom: 20px; }
+.pedido-cobro { display: flex; justify-content: space-between; width: 100%; text-align: left; background: #fff;
+                border: 1px solid var(--borde); border-radius: 8px; padding: 12px; margin-bottom: 8px; cursor: pointer; font-size: 1rem; }
+.pedido-cobro.elegido { border: 2px solid var(--azul-medio); background: #e8eef8; }
+@media (max-width: 900px) { .caja-pantalla { grid-template-columns: 1fr; } }
