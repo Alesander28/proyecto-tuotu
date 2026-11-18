@@ -1,0 +1,142 @@
+/* Estilos del módulo de ventas (Sprint 4) */
+.caja-pantalla { display: grid; grid-template-columns: 1fr 400px; gap: 20px; align-items: start; margin-bottom: 20px; }
+.pedido-cobro { display: flex; justify-content: space-between; width: 100%; text-align: left; background: #fff;
+                border: 1px solid var(--borde); border-radius: 8px; padding: 12px; margin-bottom: 8px; cursor: pointer; font-size: 1rem; }
+.pedido-cobro.elegido { border: 2px solid var(--azul-medio); background: #e8eef8; }
+@media (max-width: 900px) { .caja-pantalla { grid-template-columns: 1fr; } }
+
+/* Panel de operación del cajero: apertura, cobros y arqueo de turno. */
+.modulo-cajero { display: grid; gap: 18px; }
+.modulo-cajero .fila-titulo p { margin: 5px 0 0; color: var(--texto-secundario, #80543a); }
+.cajero-estado-turno { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; border: 1px solid #b9dfc8; border-radius: 14px; background: #f0fbf4; }
+.cajero-estado-turno h3 { margin: 9px 0 3px; color: #4b260f; }
+.cajero-estado-turno p { margin: 0; color: #6d594c; }
+.cajero-turno-id { display: flex; align-items: center; gap: 9px; color: #276b43; font-weight: 700; }
+.cajero-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.cajero-kpi { display: flex; align-items: center; gap: 13px; padding: 17px; min-width: 0; }
+.cajero-kpi-icono { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: 12px; background: #fff0dc; color: #91420b; }
+.cajero-kpi-icono svg { width: 22px; height: 22px; }
+.cajero-kpi div { display: grid; gap: 3px; min-width: 0; }
+.cajero-kpi small { color: #795a48; }
+.cajero-kpi strong { color: #54280f; font-size: 1.3rem; }
+.cajero-pedidos { padding: 17px; }
+.cajero-pedidos .tarjeta-cabecera, .cajero-historial .tarjeta-cabecera { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.cajero-pedidos .tarjeta-cabecera h3, .cajero-historial .tarjeta-cabecera h3 { margin: 0; }
+.pedido-cobro { align-items: center; gap: 12px; }
+.pedido-cobro > span:first-child { display: grid; gap: 4px; }
+.pedido-cobro small { color: #795a48; }
+.pedido-cobro > strong { white-space: nowrap; color: #642d0c; }
+.pedido-cobro.elegido { border-color: #e87500; background: #fff4e7; }
+.cajero-resumen { position: sticky; top: 16px; padding: 19px; }
+.cajero-dato-pedido { margin-bottom: 3px; font-weight: 700; }
+.cajero-detalles { display: grid; gap: 10px; max-height: 250px; overflow: auto; padding: 12px 0; }
+.cajero-detalles .linea-titulo { display: flex; justify-content: space-between; gap: 12px; font-size: .92rem; }
+.cajero-detalles .linea-titulo span { min-width: 0; }
+.cajero-detalles .linea-titulo strong { white-space: nowrap; }
+.cajero-resumen select, .cajero-apertura input, .cajero-cierre input { width: 100%; }
+.cajero-resumen .boton { width: 100%; margin-top: 14px; }
+.cajero-cierre { display: grid; grid-template-columns: minmax(210px, .8fr) minmax(400px, 1.5fr); gap: 22px; align-items: center; padding: 19px; }
+.cajero-cierre h3 { margin: 0 0 5px; }
+.cajero-cierre p { margin: 0; color: #795a48; }
+.cajero-cierre-campos { display: grid; grid-template-columns: 1fr 1.5fr auto; gap: 8px 12px; align-items: center; }
+.cajero-cierre-campos label { font-size: .88rem; color: #68432c; }
+.cajero-cierre-campos input { min-width: 0; }
+.boton-peligro { background: #9d321f; border-color: #9d321f; color: white; }
+.cajero-apertura { width: min(100%, 520px); margin: 28px auto; padding: 30px; text-align: center; }
+.cajero-apertura-icono { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 18px; background: #fff0dc; color: #91420b; }
+.cajero-apertura h3 { margin: 0 0 8px; color: #54280f; }
+.cajero-apertura p { color: #795a48; }
+.cajero-apertura form { display: grid; gap: 10px; margin-top: 20px; text-align: left; }
+.cajero-apertura .boton { width: 100%; margin-top: 5px; }
+.cajero-historial { padding: 17px; }
+.cajero-cierre-resultado { display: grid; gap: 5px; }
+@media (max-width: 1100px) { .cajero-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cajero-cierre { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .cajero-kpis { grid-template-columns: 1fr; } .cajero-estado-turno { align-items: flex-start; flex-direction: column; } .cajero-cierre-campos { grid-template-columns: 1fr; } .cajero-resumen { position: static; } }
+
+/* Inicio profesional del cajero */
+.inicio-cajero { display: grid; gap: 18px; }
+.inicio-cajero-fecha { display: block; margin-top: 5px; color: var(--texto-secundario, #8b6b58); }
+.inicio-cajero-banner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 24px; border: 1px solid #f0d4b3; border-radius: 18px; background: linear-gradient(110deg, #fff0dc 0%, #fffaf3 65%, #fbe3c4 100%); box-shadow: 0 5px 18px #54280d0d; }
+.inicio-cajero-banner h3 { margin: 10px 0 5px; color: #54280d; font-size: 21px; }
+.inicio-cajero-banner p { margin: 0; color: #805a42; }
+.inicio-cajero-banner .boton { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; text-decoration: none; }
+.inicio-cajero-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.inicio-cajero-kpi { display: flex; align-items: center; gap: 14px; min-width: 0; padding: 18px; }
+.inicio-cajero-icono { display: grid; flex: 0 0 48px; width: 48px; height: 48px; place-items: center; border-radius: 14px; color: #8a3f0b; background: #fff0dc; }
+.inicio-cajero-icono svg { width: 23px; height: 23px; }
+.inicio-cajero-kpi div { display: grid; min-width: 0; gap: 3px; }
+.inicio-cajero-kpi small { color: #805a42; }
+.inicio-cajero-kpi strong { color: #54280d; font-size: clamp(19px, 2vw, 26px); line-height: 1.2; overflow-wrap: anywhere; }
+.inicio-cajero-kpi span:not(.inicio-cajero-icono) { color: #94745f; font-size: 12px; }
+.texto-verde { color: #198754 !important; }
+.texto-naranja { color: #c45c00 !important; }
+.inicio-cajero-columnas { display: grid; grid-template-columns: minmax(250px, .85fr) minmax(0, 1.5fr); gap: 16px; }
+.inicio-cajero-atajos, .inicio-cajero-historial { min-width: 0; padding: 18px; }
+.inicio-cajero-acceso { display: flex; align-items: center; gap: 12px; padding: 14px 4px; color: inherit; text-decoration: none; border-top: 1px solid #f1e3d5; }
+.inicio-cajero-acceso > span:nth-child(2) { display: grid; flex: 1; gap: 3px; }
+.inicio-cajero-acceso strong { color: #54280d; }
+.inicio-cajero-acceso small { color: #94745f; }
+.inicio-cajero-acceso > svg { color: #c45c00; }
+.inicio-cajero-acceso:hover strong { color: #e87500; }
+.inicio-cajero-historial .tarjeta-cabecera h3, .inicio-cajero-historial .tarjeta-cabecera a { display: inline-flex; align-items: center; gap: 7px; }
+@media (max-width: 1100px) { .inicio-cajero-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .inicio-cajero-banner { align-items: flex-start; flex-direction: column; } .inicio-cajero-columnas { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .inicio-cajero-kpis { grid-template-columns: 1fr; } .inicio-cajero-kpi { padding: 14px; } }
+
+/* ================================================================
+   Cajero · refinamiento visual V4 (solo presentación, sin cambios de lógica)
+   ================================================================ */
+.modulo-cajero { gap: 20px; }
+.cajero-header { align-items: center; margin-bottom: 2px; }
+.cajero-header-texto { display: grid; gap: 4px; }
+.cajero-eyebrow { color: #bb640f; font-size: .72rem; font-weight: 800; letter-spacing: .13em; }
+.cajero-header h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -.035em; margin: 0; color: #48220d; }
+.cajero-header p { margin: 0; max-width: 680px; color: #806047; }
+.cajero-header .boton { border-radius: 11px; min-height: 40px; }
+.cajero-banner-turno { position: relative; overflow: hidden; padding: 24px 26px; border-radius: 18px; border-color: #d8e9d9; background: linear-gradient(110deg,#f1faf3,#ffffff 62%,#e5f5e9); box-shadow: 0 5px 20px rgba(38,105,64,.06); }
+.cajero-banner-turno::after { content: ''; position: absolute; width: 170px; height: 170px; border-radius: 50%; background: rgba(53,139,82,.06); right: -42px; top: -62px; pointer-events: none; }
+.cajero-banner-turno h3 { font-size: 1.28rem; margin: 10px 0 4px; }
+.cajero-banner-turno p { font-size: .9rem; }
+.cajero-turno-id { background: #fff; border: 1px solid #d8e9d9; border-radius: 13px; padding: 11px 14px; box-shadow: 0 2px 8px #1d6b3f0a; }
+.cajero-kpis-premium { gap: 14px; }
+.cajero-kpis-premium .cajero-kpi { position: relative; overflow: hidden; padding: 19px; border-radius: 16px; border-color: #ead9c5; transition: transform .18s ease,box-shadow .18s ease; }
+.cajero-kpis-premium .cajero-kpi:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(74,33,12,.09); }
+.cajero-kpis-premium .cajero-kpi-icono { width: 48px; height: 48px; flex-basis: 48px; border-radius: 14px; background: linear-gradient(145deg,#fff1dd,#ffe2bd); color: #9a4c0b; }
+.cajero-kpis-premium .cajero-kpi strong { font-size: clamp(1.2rem,1.8vw,1.55rem); font-weight: 800; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.cajero-kpis-premium .cajero-kpi small { font-size: .78rem; }
+.cajero-layout-operacion { grid-template-columns: minmax(0,1.35fr) minmax(310px,.8fr); gap: 18px; }
+.cajero-panel-pedidos,.cajero-panel-cobro { border-radius: 18px; padding: 20px; }
+.cajero-panel-pedidos .tarjeta-cabecera { margin-bottom: 14px; }
+.cajero-panel-pedidos .tarjeta-cabecera h3,.cajero-panel-cobro h3 { font-size: 1.08rem; color: #4c260f; }
+.pedido-cobro { padding: 15px 16px; border-radius: 13px; border-color: #eadbc8; margin-bottom: 9px; transition: border-color .15s,background .15s,transform .15s; }
+.pedido-cobro:hover { border-color: #e6a05b; background: #fffaf3; transform: translateY(-1px); }
+.pedido-cobro.elegido { box-shadow: 0 0 0 2px #f6c28a inset; background: #fff3e3; }
+.pedido-cobro > span:first-child strong { color: #4e270f; font-size: .96rem; }
+.pedido-cobro small { font-size: .8rem; }
+.pedido-cobro > strong { color: #a64f08; font-size: 1.04rem; }
+.cajero-panel-cobro { position: sticky; top: 18px; background: linear-gradient(180deg,#fff 0%,#fffdf9 100%); border-color: #e8d2b8; box-shadow: 0 6px 22px rgba(74,33,12,.08); }
+.cajero-panel-cobro h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; }
+.cajero-panel-cobro .cajero-dato-pedido { background: #fff2df; border: 1px solid #f2dfc8; padding: 9px 11px; border-radius: 10px; color: #70380e; }
+.cajero-panel-cobro .cajero-detalles { max-height: 300px; padding: 13px 0; }
+.cajero-panel-cobro .total { padding: 13px 0; border-top: 1px dashed #e4c9a8; border-bottom: 1px dashed #e4c9a8; margin: 8px 0 14px; }
+.cajero-panel-cobro .total strong { font-size: 1.55rem; color: #9c4b08; }
+.cajero-panel-cobro label { font-weight: 700; color: #67432b; }
+.cajero-panel-cobro select { border-radius: 10px; min-height: 43px; }
+.cajero-panel-cobro .boton { min-height: 45px; border-radius: 11px; box-shadow: 0 5px 12px #e8750820; }
+.cajero-panel-arqueo { border-radius: 17px; border-color: #ead8c4; background: linear-gradient(110deg,#fffaf3,#fff); }
+.cajero-panel-arqueo h3 { color: #4e270f; }
+.cajero-panel-arqueo .boton-peligro { border-radius: 10px; min-height: 42px; }
+.cajero-panel-apertura { border-radius: 20px; border-color: #e9d4bb; background: radial-gradient(circle at 90% 0,#fff1dc,transparent 40%),#fff; box-shadow: 0 8px 28px rgba(74,33,12,.08); }
+.cajero-panel-apertura .cajero-apertura-icono { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(145deg,#fff0da,#ffdcb5); }
+.cajero-panel-apertura h3 { font-size: 1.3rem; }
+.cajero-panel-apertura input { border-radius: 11px; min-height: 44px; }
+.cajero-panel-apertura .boton { min-height: 45px; border-radius: 11px; }
+.cajero-panel-historial { border-radius: 18px; padding: 20px; }
+.cajero-panel-historial .tarjeta-cabecera { margin-bottom: 13px; }
+.cajero-panel-historial .tarjeta-cabecera h3 { color: #4e270f; font-size: 1.06rem; }
+.cajero-panel-historial .contenedor-tabla { border-radius: 12px; }
+.cajero-panel-historial .tabla th { padding: 12px; }
+.cajero-panel-historial .tabla td { padding: 12px; }
+.cajero-cierre-resultado { border-radius: 12px; border: 1px solid #b9dfc8; padding: 14px 16px; background: #effaf3; }
+@media (max-width: 950px) { .cajero-layout-operacion { grid-template-columns: 1fr; } .cajero-panel-cobro { position: static; } }
+@media (max-width: 700px) { .cajero-banner-turno { padding: 18px; } .cajero-turno-id { padding: 9px 11px; } .cajero-panel-pedidos,.cajero-panel-cobro,.cajero-panel-historial { padding: 15px; } .cajero-panel-arqueo { padding: 16px; } }

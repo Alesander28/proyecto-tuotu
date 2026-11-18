@@ -1,0 +1,23 @@
+package pe.tuotu.sistema.inventario.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+/** Un producto no se borra: se desactiva y deja de aparecer en la carta. */
+public record ProductoActualizarRequest(
+        @NotBlank(message = "El nombre del producto es obligatorio.")
+        @Size(max = 80, message = "El nombre del producto es demasiado largo.")
+        String nombre,
+
+        @NotNull(message = "Elija una categoría.")
+        Long categoriaId,
+
+        boolean activo,
+
+        /** Opcional: dirección de la foto (solo https://… o una ruta que empiece con /). */
+        @Size(max = 300, message = "La dirección de la imagen es demasiado larga.")
+        @Pattern(regexp = "^(https?://|/).*$", message = "La imagen debe ser una dirección https:// o una ruta que empiece con /.")
+        String imagenUrl) {
+}

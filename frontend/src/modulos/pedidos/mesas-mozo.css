@@ -1,0 +1,48 @@
+.mesas-mozo { display:flex; flex-direction:column; gap:14px; }
+.mesas-titulo { margin-bottom:0; }
+.mesas-eyebrow { color:#b95a00; font-size:.72rem; font-weight:800; letter-spacing:1.2px; }
+.mesas-titulo h2 { margin:3px 0; color:var(--cafe-oscuro); }
+.mesas-titulo p,.mesas-panel-cabecera p { margin:3px 0 0; color:var(--texto-2); font-size:.9rem; }
+.mesas-resumen { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.mesas-kpi { display:flex; align-items:center; gap:12px; min-width:0; }
+.mesas-kpi-icono { width:44px; height:44px; flex:0 0 44px; border-radius:13px; background:#fff0dc; color:#85400d; display:grid; place-items:center; }
+.mesas-kpi>div { display:flex; flex-direction:column; min-width:0; }
+.mesas-kpi small { color:var(--texto-2); font-size:.8rem; }
+.mesas-kpi strong { color:var(--cafe-oscuro); font-size:1.55rem; line-height:1.25; }
+.mesas-kpi.libre .mesas-kpi-icono { background:#e4f4e9; color:#247344; }
+.mesas-kpi.ocupada .mesas-kpi-icono { background:#fff0dc; color:#a14c08; }
+.mesas-kpi.inactiva .mesas-kpi-icono { background:#eee9e2; color:#786b5d; }
+.mesas-punto { width:12px; height:12px; border-radius:50%; background:#299657; box-shadow:0 0 0 5px #ccebd7; }
+.mesas-panel { padding:18px; }
+.mesas-panel-cabecera { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.mesas-panel-cabecera h3 { margin:0; color:var(--cafe-oscuro); }
+.mesas-leyenda { display:flex; flex-wrap:wrap; gap:12px; color:var(--texto-2); font-size:.78rem; }
+.mesas-leyenda span { display:inline-flex; align-items:center; gap:6px; }
+.mesas-leyenda i { width:9px; height:9px; display:inline-block; border-radius:50%; background:#299657; }
+.mesas-leyenda i.ocupada { background:#e77b13; }.mesas-leyenda i.inactiva { background:#9b9186; }
+.mesas-filtros { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin:16px 0; }
+.mesas-buscador { display:flex; align-items:center; gap:8px; border:1px solid var(--borde); border-radius:10px; background:#fff; padding:0 10px; min-width:220px; color:var(--texto-2); }
+.mesas-buscador input { border:0; outline:0; box-shadow:none; padding:9px 0; width:100%; min-width:0; }
+.mesas-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+.mesa-card { background:#fff; border:1px solid var(--borde); border-top:4px solid #299657; border-radius:14px; padding:15px; min-width:0; box-shadow:var(--sombra); }
+.mesa-card.ocupada { border-top-color:#e77b13; }.mesa-card.inactiva { border-top-color:#9b9186; background:#faf8f5; }
+.mesa-card-top { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.mesa-card-icono { display:grid; place-items:center; width:40px; height:40px; border-radius:12px; color:#247344; background:#e4f4e9; }
+.mesa-card.ocupada .mesa-card-icono { color:#a14c08; background:#fff0dc; }.mesa-card.inactiva .mesa-card-icono { color:#786b5d; background:#eee9e2; }
+.mesa-estado { border-radius:999px; padding:4px 9px; font-size:.72rem; font-weight:750; color:#247344; background:#e4f4e9; }
+.mesa-estado.ocupada { color:#914707; background:#fff0dc; }.mesa-estado.inactiva { color:#71675d; background:#eee9e2; }
+.mesa-card-numero { color:var(--cafe-oscuro); font-size:1.25rem; font-weight:800; margin:10px 0 7px; }
+.mesa-card-detalle { display:flex; flex-direction:column; gap:7px; color:var(--texto-2); font-size:.8rem; min-height:105px; }
+.mesa-card-detalle span { display:flex; align-items:center; gap:6px; }.mesa-total { color:var(--cafe-oscuro); font-size:1.1rem; margin-top:2px; }
+.mesa-card-disponible { color:var(--texto-2); font-size:.84rem; min-height:105px; margin:0; }
+.mesa-card-acciones { display:flex; flex-direction:column; align-items:stretch; gap:7px; margin-top:12px; }
+.mesa-boton-pedido { display:flex; justify-content:center; align-items:center; gap:7px; text-decoration:none; }
+.mesa-link-historial { background:none; border:0; color:#95500f; font-weight:700; font-size:.8rem; cursor:pointer; padding:5px; }.mesa-link-historial:hover { text-decoration:underline; }
+.mesas-vacio { display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding:38px 15px; color:var(--texto-2); }
+.mesas-vacio>svg { color:#a36a32; }.mesas-vacio strong { color:var(--cafe-oscuro); }.mesas-vacio p { max-width:500px; margin:0; font-size:.88rem; }
+.mesas-nota-rol { font-size:.78rem; color:#95602d; background:#fff2df; border-radius:8px; padding:7px 10px; margin-top:5px; }
+.mesas-actualizacion { display:flex; align-items:center; gap:6px; margin:14px 0 0; color:var(--texto-2); font-size:.75rem; }
+.mesas-girando { animation:mesas-giro .8s linear infinite; } @keyframes mesas-giro { to { transform:rotate(360deg); } }
+.mesas-modal { max-width:850px; }.mesas-modal .modal-cabecera p { color:var(--texto-2); font-size:.85rem; margin:3px 0; }
+@media(max-width:1050px) { .mesas-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.mesas-resumen { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:620px) { .mesas-grid,.mesas-resumen { grid-template-columns:1fr; }.mesas-panel { padding:13px; }.mesas-buscador { width:100%; }.mesas-filtros .conmutador { width:100%; justify-content:space-around; } }

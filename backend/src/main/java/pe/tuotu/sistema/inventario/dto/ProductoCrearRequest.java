@@ -1,0 +1,27 @@
+package pe.tuotu.sistema.inventario.dto;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+import java.util.List;
+
+public record ProductoCrearRequest(
+        @NotBlank(message = "El nombre del producto es obligatorio.")
+        @Size(max = 80, message = "El nombre del producto es demasiado largo.")
+        String nombre,
+
+        @NotNull(message = "Elija una categoría.")
+        Long categoriaId,
+
+        @NotEmpty(message = "El producto debe tener al menos una presentación con su precio.")
+        List<@Valid PresentacionRequest> presentaciones,
+
+        /** Opcional: dirección de la foto (solo https://… o una ruta que empiece con /). */
+        @Size(max = 300, message = "La dirección de la imagen es demasiado larga.")
+        @Pattern(regexp = "^(https?://|/).*$", message = "La imagen debe ser una dirección https:// o una ruta que empiece con /.")
+        String imagenUrl) {
+}

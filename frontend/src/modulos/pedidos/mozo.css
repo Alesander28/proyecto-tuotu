@@ -1,0 +1,52 @@
+/* Inicio del Mozo — diseño de atención, conservando sus datos y acciones reales */
+.mozo-inicio { display:flex; flex-direction:column; gap:22px; }
+.mozo-bienvenida { position:relative; overflow:hidden; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:28px 32px; border-radius:22px; color:#fff7ec; background:linear-gradient(115deg,#42200d 0%,#71370f 56%,#bd5b0b 100%); box-shadow:0 10px 26px rgba(74,33,12,.14); }
+.mozo-bienvenida::after { content:""; position:absolute; width:240px; height:240px; border:1px solid rgba(255,255,255,.12); border-radius:50%; right:-78px; top:-105px; box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025); pointer-events:none; }
+.mozo-bienvenida > div:first-child { position:relative; z-index:1; }
+.mozo-bienvenida h2 { color:#fff; font-size:clamp(1.5rem,2.5vw,2.15rem); margin:7px 0 6px; letter-spacing:-.35px; }
+.mozo-bienvenida p { max-width:600px; margin:0; color:#f8dfc3; font-size:.96rem; }
+.mozo-eyebrow { color:#ffbd70; font-size:.72rem; font-weight:800; letter-spacing:1.7px; }
+.mozo-saludo-icono { position:relative; z-index:1; width:76px; height:76px; border-radius:23px; display:grid; place-items:center; color:#71370f; background:#ffead0; flex-shrink:0; box-shadow:0 8px 20px rgba(40,15,3,.16); }
+.mozo-acciones-principales { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.mozo-accion { display:flex; align-items:center; gap:13px; min-height:100px; padding:17px; border-radius:17px; border:1px solid var(--borde); text-decoration:none; color:var(--texto); background:#fff; box-shadow:0 3px 12px rgba(74,33,12,.06); transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease; }
+.mozo-accion:hover { transform:translateY(-3px); box-shadow:0 12px 24px rgba(74,33,12,.12); border-color:#e8bd8b; }
+.mozo-accion.crear { border-top:3px solid var(--naranja); }
+.mozo-accion.seguimiento { border-top:3px solid var(--cafe); }
+.mozo-accion-icono { width:50px; height:50px; display:grid; place-items:center; border-radius:15px; background:var(--crema); color:var(--cafe); flex-shrink:0; }
+.mozo-accion strong,.mozo-accion small { display:block; }
+.mozo-accion strong { font-size:1rem; color:var(--cafe-oscuro); }
+.mozo-accion small { color:var(--texto-2); margin-top:4px; font-size:.82rem; line-height:1.35; }
+.mozo-flecha { margin-left:auto; color:var(--naranja); flex-shrink:0; }
+.mozo-seccion-cabecera { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.mozo-seccion-cabecera h3 { margin:0; font-size:1.1rem; }
+.mozo-seccion-cabecera p { margin:4px 0 0; color:var(--texto-2); font-size:.88rem; }
+.mozo-seccion-cabecera .boton { align-items:center; }
+.mozo-indicadores { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:13px; }
+.mozo-indicador { display:flex; align-items:center; gap:12px; min-width:0; padding:17px 15px; border:1px solid var(--borde); border-radius:17px; background:#fff; box-shadow:0 3px 12px rgba(74,33,12,.05); }
+.mozo-indicador-icono { width:43px; height:43px; display:grid; place-items:center; border-radius:14px; flex-shrink:0; }
+.mozo-indicador-icono.naranja { background:#fff0da; color:#bd5c05; }
+.mozo-indicador-icono.pendiente { background:#fff0c9; color:#a66b00; }
+.mozo-indicador-icono.preparacion { background:#e2eef8; color:#2f6fa8; }
+.mozo-indicador-icono.atendido { background:#e1f2e7; color:#2e8b57; }
+.mozo-indicador-icono.cafe { background:#f1e5d8; color:#71370f; }
+.mozo-indicador small { display:block; color:var(--texto-2); font-size:.76rem; line-height:1.25; }
+.mozo-indicador strong { display:block; margin-top:4px; color:var(--cafe-oscuro); font-size:1.32rem; overflow-wrap:anywhere; }
+.mozo-recientes { display:flex; flex-direction:column; gap:16px; border-radius:18px; }
+.mozo-recientes .enlace { display:inline-flex; align-items:center; gap:4px; }
+.mozo-tabla-contenedor { width:100%; overflow-x:auto; border:1px solid #f0e3d2; border-radius:12px; }
+.mozo-tabla { width:100%; border-collapse:collapse; min-width:650px; font-size:.88rem; }
+.mozo-tabla th { text-align:left; color:var(--texto-2); font-size:.76rem; font-weight:800; background:#fff4e4; letter-spacing:.25px; }
+.mozo-tabla th,.mozo-tabla td { padding:13px 12px; border-bottom:1px solid #f0e3d2; white-space:nowrap; }
+.mozo-tabla tbody tr:last-child td { border-bottom:0; }
+.mozo-tabla tbody tr:hover { background:#fffaf3; }
+.mozo-estado { display:inline-flex; padding:5px 10px; border-radius:999px; font-size:.73rem; font-weight:800; }
+.mozo-estado.pendiente { color:#946000; background:#fff0c9; }
+.mozo-estado.en_preparacion { color:#245d91; background:#e2eef8; }
+.mozo-estado.atendido { color:#216b43; background:#e1f2e7; }
+.mozo-vacio { display:flex; align-items:center; flex-direction:column; text-align:center; padding:30px 14px; }
+.mozo-vacio > span { width:58px; height:58px; display:grid; place-items:center; border-radius:18px; background:var(--crema); color:var(--cafe); margin-bottom:12px; }
+.mozo-vacio p { color:var(--texto-2); margin:6px 0 15px; }
+@media(max-width:1280px) { .mozo-indicadores { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media(max-width:920px) { .mozo-acciones-principales { grid-template-columns:repeat(2,minmax(0,1fr)); } .mozo-accion:last-child { grid-column:1/-1; } }
+@media(max-width:760px) { .mozo-acciones-principales { grid-template-columns:1fr; } .mozo-accion:last-child { grid-column:auto; } .mozo-indicadores { grid-template-columns:repeat(2,minmax(0,1fr)); } .mozo-bienvenida { padding:22px; } }
+@media(max-width:460px) { .mozo-indicadores { grid-template-columns:1fr; } .mozo-saludo-icono { width:54px; height:54px; border-radius:16px; } .mozo-bienvenida { align-items:flex-start; } .mozo-indicador { padding:14px; } }
