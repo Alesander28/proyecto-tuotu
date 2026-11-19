@@ -32,14 +32,14 @@ export default function Login() {
   return (
     <main className="login-nuevo">
       {/* La imagen de fondo ya incluye el logo y el eslogan; no se superponen elementos. */}
-      <section className="login-marca" aria-label="Tú o Tú: pizzas, tacos y parrillas. Sabor que nos une">
+      <section className="login-marca" style={{ backgroundImage: `url("${import.meta.env.BASE_URL}login-gastronomia.png")` }} aria-label="Tú o Tú: pizzas, tacos y parrillas. Sabor que nos une">
         <div className="login-marca-fondo" aria-hidden="true" />
       </section>
 
       <section className="login-panel-lado" aria-label="Formulario de inicio de sesión">
         <div className="login-panel">
           <div className="login-decor login-decor-superior" aria-hidden="true">✦</div>
-          <img className="login-logo-form" src="/logo-tuotu.png" alt="Logo Tú o Tú" />
+          <img className="login-logo-form" src={`${import.meta.env.BASE_URL}logo-tuotu.png`} alt="Logo Tú o Tú" />
           <h1 id="titulo-login">Bienvenido</h1>
           <p className="login-subtitulo">Inicia sesión para continuar</p>
           <div className="login-separador"><span /></div>
