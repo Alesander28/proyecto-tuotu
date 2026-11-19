@@ -4,7 +4,7 @@
   background: #fff0dc; overflow: hidden; color: #542609;
 }
 .login-marca { min-height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
-  background: #401a05 url('/login-gastronomia.png') center center / cover no-repeat; }
+  background: #401a05 center center / cover no-repeat; }
 .login-marca::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(50,19,1,.12), rgba(50,19,1,.04) 72%, rgba(50,19,1,.2)); pointer-events: none; }
 .login-marca-fondo { position: absolute; inset: 0; background: radial-gradient(ellipse at 72% 28%, rgba(255,167,48,.1), transparent 48%); }
 .login-panel-lado { min-height: 100vh; padding: clamp(24px, 4vw, 64px); display: flex; align-items: center; justify-content: center; position: relative;
