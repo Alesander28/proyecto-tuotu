@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tú o Tú · Sistema de gestión</title>
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="%BASE_URL%favicon.png" />
+    <script>
+      (function () {
+        const base = '/proyecto-tuotu';
+        const parametros = new URLSearchParams(window.location.search);
+
+        if (!parametros.has('p')) return;
+
+        const ruta = parametros.get('p') || '/';
+        const consulta = parametros.get('q') || '';
+        const hash = parametros.get('h') || '';
+        const rutaRelativa = ruta.startsWith('/') ? ruta : '/' + ruta;
+
+        window.history.replaceState(
+          null,
+          '',
+          base + rutaRelativa + consulta + hash
+        );
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
