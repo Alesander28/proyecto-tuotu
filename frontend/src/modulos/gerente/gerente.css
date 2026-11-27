@@ -26,7 +26,7 @@
 /* Dashboard gerente: visual limpio, cálido y sin títulos redundantes */
 .dashboard-gerente .gerente-banner {
   min-height: 190px; margin: 0 0 18px; border-radius: 20px; overflow: hidden;
-  background: linear-gradient(90deg, rgba(48,18,3,.72) 0%, rgba(60,22,4,.48) 44%, rgba(60,22,4,.04) 100%), url('/banner-gerente.png') center / cover;
+  background: linear-gradient(90deg, rgba(48,18,3,.72) 0%, rgba(60,22,4,.48) 44%, rgba(60,22,4,.04) 100%), url('/proyecto-tuotu/banner-gerente.png') center / cover;
   box-shadow: 0 8px 22px rgba(74,33,12,.13); display: flex; align-items: center; padding: 28px 34px;
   border: 1px solid rgba(255,255,255,.35);
 }

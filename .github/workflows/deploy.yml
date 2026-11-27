@@ -1,4 +1,4 @@
-﻿name: Publicar TU O TU en GitHub Pages
+name: Publicar TU O TU en GitHub Pages
 
 on:
   push:
@@ -36,10 +36,8 @@ jobs:
       - name: Compilar frontend
         run: npm run build
         working-directory: frontend
-
-      - name: Preparar rutas de React
-        run: cp dist/index.html dist/404.html
-        working-directory: frontend
+        env:
+          VITE_API_URL: https://proyecto-tuotu.onrender.com
 
       - name: Preparar GitHub Pages
         uses: actions/configure-pages@v5

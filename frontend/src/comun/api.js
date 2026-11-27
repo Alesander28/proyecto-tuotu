@@ -1,5 +1,6 @@
 // Cliente mínimo para la API REST. Agrega el token a cada petición.
-const BASE = '/api';
+const ORIGEN_API = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+const BASE = `${ORIGEN_API}/api`;
 
 export function obtenerToken() {
   const token = sessionStorage.getItem('token');
@@ -8,7 +9,7 @@ export function obtenerToken() {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('tokenExpiraEn');
-    window.location.assign('/ingreso');
+    window.location.assign(`${import.meta.env.BASE_URL}ingreso`);
     return null;
   }
   return token;
@@ -56,7 +57,7 @@ export async function api(ruta, { metodo = 'GET', cuerpo } = {}) {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('tokenExpiraEn');
-    window.location.assign('/ingreso');
+    window.location.assign(`${import.meta.env.BASE_URL}ingreso`);
   }
   if (!respuesta.ok) {
     const error = new Error(datos?.mensaje || 'Ocurrió un error. Inténtelo de nuevo.');
