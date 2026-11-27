@@ -1,13 +1,27 @@
+# Compilacion y dependencias
 backend/target/
 frontend/node_modules/
 frontend/dist/
+
+# Configuracion de editores
 .idea/
 .vscode/
+
+# Registros y archivos temporales
 *.log
+error-compilacion.txt
+*.bak
+
+# Variables de entorno y secretos
 .env
 .env.*
 !.env.example
 *.pem
 *.key
 secrets/
+
+# Registros del backend
 backend/logs/
+
+# Respaldos locales de PostgreSQL
+respaldos/

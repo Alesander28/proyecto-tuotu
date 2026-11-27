@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /** Utilidades compartidas por las pruebas de la API: iniciar sesión y crear usuarios con un rol. */
 public class ApiTestSupport {
 
-    public static final String CLAVE_GERENTE = "GerenteSegura123!";
+    public static final String CLAVE_GERENTE = "Gerente$123*";
 
     private final MockMvc mvc;
     private final ObjectMapper json;

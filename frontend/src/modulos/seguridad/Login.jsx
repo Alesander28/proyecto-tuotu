@@ -47,13 +47,13 @@ export default function Login() {
           <form onSubmit={enviar} aria-labelledby="titulo-login">
             <label className="login-campo" htmlFor="usuario">
               <UserRound aria-hidden="true" />
-              <input id="usuario" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)}
+              <input id="usuario" aria-label="Usuario" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)}
                 autoComplete="username" placeholder="Usuario" required autoFocus />
             </label>
 
             <label className="login-campo" htmlFor="contrasena">
               <LockKeyhole aria-hidden="true" />
-              <input id="contrasena" type={mostrarContrasena ? 'text' : 'password'} value={contrasena}
+              <input id="contrasena" aria-label="Contraseña" type={mostrarContrasena ? 'text' : 'password'} value={contrasena}
                 onChange={(e) => setContrasena(e.target.value)} autoComplete="current-password"
                 placeholder="Contraseña" required />
               <button className="login-ver-clave" type="button" onClick={() => setMostrarContrasena((v) => !v)}
@@ -64,7 +64,7 @@ export default function Login() {
 
             {error && <p className="login-error" role="alert">{error}</p>}
 
-            <button className="login-submit" type="submit" disabled={enviando}>
+            <button className="login-submit" type="submit" aria-label="Ingresar" disabled={enviando}>
               {enviando ? 'INGRESANDO…' : 'INGRESAR'}
               {!enviando && <LogIn aria-hidden="true" />}
             </button>

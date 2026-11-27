@@ -51,7 +51,7 @@ class PedidoApiTest {
 
     /** Crea un usuario con el rol indicado (lo hace el gerente) y devuelve su token de sesión. */
     private String sesionDe(String usuario, String rol) throws Exception {
-        String tokenGerente = iniciarSesion("gerente", "GerenteSegura123!");
+        String tokenGerente = iniciarSesion("gerente", "Gerente$123*");
         long rolId = idDelRol(tokenGerente, rol);
         mvc.perform(post("/api/usuarios").header("Authorization", "Bearer " + tokenGerente)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -130,7 +130,7 @@ class PedidoApiTest {
     @Test
     void elGerenteBuscaPedidosPorMesaYPorEstado() throws Exception {
         String tokenMozo = sesionDe("mozo_ped5", "MOZO");
-        String tokenGerente = iniciarSesion("gerente", "GerenteSegura123!");
+        String tokenGerente = iniciarSesion("gerente", "Gerente$123*");
         String[] pres = primeraPresentacion(tokenMozo);
         registrar(tokenMozo, "{\"mesa\":\"BUSCA1\",\"items\":[{\"presentacionId\":" + pres[0]
                 + ",\"cantidad\":1,\"paraLlevar\":false,\"extraQueso\":false}]}");
@@ -145,7 +145,7 @@ class PedidoApiTest {
     @Test
     void elGerenteNoPuedeCambiarElEstadoDeUnPedido() throws Exception {
         String tokenMozo = sesionDe("mozo_ped6", "MOZO");
-        String tokenGerente = iniciarSesion("gerente", "GerenteSegura123!");
+        String tokenGerente = iniciarSesion("gerente", "Gerente$123*");
         String[] pres = primeraPresentacion(tokenMozo);
         MvcResult creado = registrar(tokenMozo, "{\"mesa\":\"9\",\"items\":[{\"presentacionId\":" + pres[0]
                 + ",\"cantidad\":1,\"paraLlevar\":false,\"extraQueso\":false}]}");

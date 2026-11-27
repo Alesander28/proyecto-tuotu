@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("dev")
 class SeguridadApiTest {
 
-    private static final String CLAVE_GERENTE = "GerenteSegura123!";
+    private static final String CLAVE_GERENTE = "Gerente$123*";
 
     @Autowired
     private MockMvc mvc;

@@ -1,7 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 import NuevoPedido from './NuevoPedido.jsx';
+
 
 const CARTA = {
   categorias: [
@@ -46,7 +48,7 @@ describe('Nuevo pedido (HU-007)', () => {
 
   it('muestra únicamente las mesas activas y libres registradas por el gerente', async () => {
     instalarFetch();
-    render(<NuevoPedido />);
+    render(<MemoryRouter><NuevoPedido /></MemoryRouter>);
     const selector = await screen.findByLabelText('Mesa');
     expect(await screen.findByRole('option', { name: 'Mesa 01 — Disponible' })).toBeInTheDocument();
     expect(screen.getByRole('option', { name: 'Mesa 04 — Disponible' })).toBeInTheDocument();
@@ -57,7 +59,7 @@ describe('Nuevo pedido (HU-007)', () => {
 
   it('calcula el total con los cargos de extra queso y para llevar', async () => {
     instalarFetch();
-    render(<NuevoPedido />);
+    render(<MemoryRouter><NuevoPedido /></MemoryRouter>);
     await userEvent.click(await screen.findByRole('button', { name: 'Agregar Hawaiana Personal' }));
     expect(screen.getByTestId('total')).toHaveTextContent('S/ 22.00');
     await userEvent.click(screen.getByRole('button', { name: 'Agregar Hawaiana Familiar' }));
@@ -70,7 +72,7 @@ describe('Nuevo pedido (HU-007)', () => {
 
   it('el extra queso depende del tamaño y solo aparece en los productos que lo admiten', async () => {
     instalarFetch();
-    render(<NuevoPedido />);
+    render(<MemoryRouter><NuevoPedido /></MemoryRouter>);
     await userEvent.click(await screen.findByRole('button', { name: 'Agregar Hawaiana Familiar' }));
     await userEvent.click(screen.getByLabelText(/Extra queso/));
     expect(screen.getByTestId('total')).toHaveTextContent('S/ 47.00');
@@ -83,14 +85,14 @@ describe('Nuevo pedido (HU-007)', () => {
 
   it('no permite enviar un pedido sin seleccionar mesa', async () => {
     instalarFetch();
-    render(<NuevoPedido />);
+    render(<MemoryRouter><NuevoPedido /></MemoryRouter>);
     await userEvent.click(await screen.findByRole('button', { name: 'Agregar Hawaiana Personal' }));
     expect(screen.getByRole('button', { name: 'Enviar pedido' })).toBeDisabled();
   });
 
   it('envía el pedido con la mesa seleccionada y muestra su código', async () => {
     const fetchSimulado = instalarFetch();
-    render(<NuevoPedido />);
+    render(<MemoryRouter><NuevoPedido /></MemoryRouter>);
     await screen.findByRole('option', { name: 'Mesa 01 — Disponible' });
     await userEvent.selectOptions(screen.getByLabelText('Mesa'), '01');
     await userEvent.click(screen.getByRole('button', { name: 'Agregar Hawaiana Personal' }));
@@ -102,7 +104,7 @@ describe('Nuevo pedido (HU-007)', () => {
 
   it('informa cuando el gerente todavía no registró mesas disponibles', async () => {
     instalarFetch({ mesas: [] });
-    render(<NuevoPedido />);
+    render(<MemoryRouter><NuevoPedido /></MemoryRouter>);
     expect(await screen.findByText(/No hay mesas disponibles/)).toBeInTheDocument();
   });
 });

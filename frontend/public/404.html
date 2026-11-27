@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirigiendo - T&#250; o T&#250;</title>
+    <script>
+      (function () {
+        const base = '/proyecto-tuotu';
+        const rutaActual = window.location.pathname;
+        const ruta = rutaActual.startsWith(base)
+          ? rutaActual.slice(base.length) || '/'
+          : '/';
+
+        const destino =
+          base + '/?p=' + encodeURIComponent(ruta) +
+          '&q=' + encodeURIComponent(window.location.search) +
+          '&h=' + encodeURIComponent(window.location.hash);
+
+        window.location.replace(destino);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirigiendo a T&#250; o T&#250;...</p>
+  </body>
+</html>

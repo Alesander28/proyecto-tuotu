@@ -91,7 +91,7 @@ export default function Panel() {
     <div className={clases}>
       <aside className="barra-lateral" aria-label="Navegación principal">
         <div className="marca">
-          <img className="marca-logo" src="/logo-tuotu.png" alt="Logo de Tú o Tú" />
+          <img className="marca-logo" src={`${import.meta.env.BASE_URL}logo-tuotu.png`} alt="Logo de Tú o Tú" />
           <div className="marca-texto">
             <strong>TÚ O TÚ</strong>
             <span>Pizzas · Tacos · Parrillas</span>

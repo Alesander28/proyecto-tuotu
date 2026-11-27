@@ -47,7 +47,8 @@ describe('Productos (HU-010)', () => {
     render(<Productos />);
 
     expect(await screen.findByText('Hawaiana')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Cambiar precio de Hawaiana Personal/ })).toHaveTextContent('S/ 22.00');
+    await userEvent.click(screen.getByTitle('Vista de tabla'));
+    expect(screen.getByRole('button', { name: /Actualizar precio de Hawaiana Personal/ })).toHaveTextContent('S/ 22.00');
     expect(screen.getByRole('button', { name: 'Desactivar' })).toBeInTheDocument();
   });
 });
