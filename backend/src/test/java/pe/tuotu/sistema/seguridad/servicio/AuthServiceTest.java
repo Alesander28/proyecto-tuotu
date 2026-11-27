@@ -118,6 +118,34 @@ class AuthServiceTest {
 
 
     @Test
+    void bloqueoSeLevantaDespuesDeCincoMinutos() {
+        when(usuarios.findByNombreUsuario("mozo01")).thenReturn(Optional.of(usuarioMozo()));
+        when(encoder.matches("incorrecta", "hash")).thenReturn(false);
+
+        for (int i = 0; i < 3; i++) {
+            assertThrows(ApiException.class,
+                    () -> servicio.login(new LoginRequest("mozo01", "incorrecta"), "10.0.0.5"));
+        }
+
+        ApiException bloqueo = assertThrows(ApiException.class,
+                () -> servicio.login(new LoginRequest("mozo01", "incorrecta"), "10.0.0.5"));
+        assertEquals(HttpStatus.TOO_MANY_REQUESTS, bloqueo.getEstado());
+
+        @SuppressWarnings("unchecked")
+        java.util.concurrent.ConcurrentHashMap<String, Object> controles =
+                (java.util.concurrent.ConcurrentHashMap<String, Object>)
+                        ReflectionTestUtils.getField(servicio, "intentos");
+
+        Object control = controles.get("usuario:mozo01|ip:10.0.0.5");
+        ReflectionTestUtils.setField(control, "inicio", System.currentTimeMillis() - 5 * 60 * 1000L);
+
+        ApiException nuevoIntento = assertThrows(ApiException.class,
+                () -> servicio.login(new LoginRequest("mozo01", "incorrecta"), "10.0.0.5"));
+        assertEquals(HttpStatus.UNAUTHORIZED, nuevoIntento.getEstado());
+    }
+
+
+    @Test
     void limitaIntentosPorIpAunqueCambieElNombreDeUsuario() {
         when(usuarios.findByNombreUsuario(any())).thenReturn(Optional.empty());
         when(encoder.matches(any(), any())).thenReturn(false);
