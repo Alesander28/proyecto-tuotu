@@ -33,7 +33,7 @@ public class AuthService {
     private static final int MAX_INTENTOS_USUARIO_IP = 3;
     // Evita que una sola persona bloquee a todos los usuarios detrás de la misma red.
     private static final int MAX_INTENTOS_IP = 15;
-    private static final long BLOQUEO_MS = 15 * 60 * 1000L;
+    private static final long BLOQUEO_MS = 5 * 60 * 1000L;
     private static final long VIGENCIA_HORAS = 8;
     // Hash ficticio para ejecutar BCrypt también cuando el usuario no existe.
     private static final String HASH_USUARIO_INEXISTENTE = new BCryptPasswordEncoder().encode("clave-ficticia-no-utilizable");
@@ -76,7 +76,7 @@ public class AuthService {
         if (estaBloqueado(controlUsuario, MAX_INTENTOS_USUARIO_IP)
                 || estaBloqueado(controlIp, MAX_INTENTOS_IP)) {
             throw new ApiException(HttpStatus.TOO_MANY_REQUESTS,
-                    "Demasiados intentos. Espere 15 minutos antes de volver a intentar.");
+                    "Demasiados intentos. Espere 5 minutos antes de volver a intentar.");
         }
 
         Usuario usuario = usuarios.findByNombreUsuario(nombre).orElse(null);
